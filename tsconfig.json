@@ -4,18 +4,16 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "crb-lib-clipboard": [
-        "./dist/crb-lib-clipboard"
-      ],
-      "crb-lib-icons": [
-        "./dist/crb-lib-icons"
-      ],
-      "crb-lib-nav": [
-        "./dist/crb-lib-nav"
-      ],
+      "crb-lib-clipboard": ["./dist/crb-lib-clipboard"],
+      "crb-lib-icons": ["./dist/crb-lib-icons"],
+
+      "crb-lib-nav": ["./dist/crb-lib-nav"],
       "crb-lib-local-storage": [
         "./dist/crb-lib-local-storage"
       ],
+      "crb-lib-http404": [
+        "./dist/crb-lib-http404"
+      ]
     },
     "strict": true,
     "noImplicitOverride": true,
@@ -39,16 +37,10 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/dev.corbie.www/tsconfig.app.json"
+      "path": "./projects/crb-lib-nav/tsconfig.lib.json"
     },
     {
-      "path": "./projects/dev.corbie.www/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/cb-lib-navigation/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/cb-lib-navigation/tsconfig.spec.json"
+      "path": "./projects/crb-lib-nav/tsconfig.spec.json"
     },
     {
       "path": "./projects/dev.corbie.www/tsconfig.app.json"
@@ -57,10 +49,10 @@
       "path": "./projects/dev.corbie.www/tsconfig.spec.json"
     },
     {
-      "path": "./projects/cb-lib-icons/tsconfig.lib.json"
+      "path": "./projects/crb-lib-icons/tsconfig.lib.json"
     },
     {
-      "path": "./projects/cb-lib-icons/tsconfig.spec.json"
+      "path": "./projects/crb-lib-icons/tsconfig.spec.json"
     },
     {
       "path": "./projects/crb-lib-local-storage/tsconfig.lib.json"
@@ -73,6 +65,24 @@
     },
     {
       "path": "./projects/crb-lib-clipboard/tsconfig.spec.json"
-    }
+    },
+    {
+      "path": "./projects/crb-lib-http404/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/crb-lib-http404/tsconfig.spec.json"
+    },
+        {
+      "path": "./projects/dev.corbie.www/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/dev.corbie.www/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/dev.corbie.api/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/dev.corbie.api/tsconfig.spec.json"
+    },
   ]
 }

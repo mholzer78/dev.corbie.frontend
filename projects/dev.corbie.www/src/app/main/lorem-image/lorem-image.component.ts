@@ -2,14 +2,13 @@ import { Component, OnDestroy, OnInit, signal, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SiteBlueprint } from '../SiteBlueprint';
-import { CrbClipboard } from 'crb-lib-clipboard';
 import { CrbIcons } from 'crb-lib-icons';
 import cbLoremImage from '@corbie.dev/lorem-image';
 
 @Component({
   selector: 'section[loremImage]',
   standalone: true,
-  imports: [FormsModule, CrbClipboard, CrbIcons],
+  imports: [FormsModule, CrbIcons],
   templateUrl: './lorem-image.component.html',
   styleUrl: './lorem-image.component.scss',
 })

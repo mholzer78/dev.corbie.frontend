@@ -1,7 +1,7 @@
-@use '../../../scss/input';
+@use '../../../../../styles/modules/input.scss';
 
 @include input.crbInput;
-@include input.checkbox;
+@include input.crbCheckbox;
 
 .table {
   display: flex;
