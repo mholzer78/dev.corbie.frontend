@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 
 import cbConvert from '@corbie.dev/color-convert';
 import { TCbCmyk, TCbDefault } from '@corbie.dev/color-convert/dist/modules/Color';
@@ -14,7 +14,7 @@ import { ColorPickerComponent } from './color-picker/color-picker.component';
 @Component({
   selector: 'section[colorConvert]',
   standalone: true,
-  imports: [CommonModule, FormsModule, Clipboard, ColorPickerComponent],
+  imports: [FormsModule, Clipboard, ColorPickerComponent],
   providers: [ColorConvertService],
   templateUrl: './color-convert.component.html',
   styleUrls: ['./color-convert.component.scss'],
