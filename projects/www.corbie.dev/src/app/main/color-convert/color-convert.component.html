@@ -16,7 +16,7 @@
       placeholder="0"
       [(ngModel)]="masterR"
       (ngModelChange)="changeColorHandler(inputMasterR.value, 'master')"
-      />
+    />
     <input
       #inputSliderR
       type="range"
@@ -27,7 +27,7 @@
       class="slider"
       [(ngModel)]="masterR"
       (ngModelChange)="changeColorHandler(inputMasterR.value, 'master')"
-      />
+    />
   </form>
   <form class="crbInput">
     <label for="masterG">Green</label>
@@ -46,7 +46,7 @@
       placeholder="0"
       [(ngModel)]="masterG"
       (ngModelChange)="changeColorHandler(inputMasterG.value, 'master')"
-      />
+    />
     <input
       #inputSliderG
       type="range"
@@ -57,7 +57,7 @@
       class="slider"
       [(ngModel)]="masterG"
       (ngModelChange)="changeColorHandler(inputMasterG.value, 'master')"
-      />
+    />
   </form>
   <form class="crbInput">
     <label for="masterB">Blue</label>
@@ -76,7 +76,7 @@
       placeholder="0"
       [(ngModel)]="masterB"
       (ngModelChange)="changeColorHandler(inputMasterB.value, 'master')"
-      />
+    />
     <input
       #inputSliderB
       type="range"
@@ -87,7 +87,7 @@
       class="slider"
       [(ngModel)]="masterB"
       (ngModelChange)="changeColorHandler(inputMasterB.value, 'master')"
-      />
+    />
   </form>
   <form class="crbInput">
     <label for="picker">Colorpicker</label>
@@ -96,7 +96,7 @@
       [(color)]="colorPicker"
       (changeColor)="changeColorHandler($event)"
       disabled="false"
-      />
+    />
   </form>
   <form class="crbInput">
     <label for="hex">HEX</label>
@@ -109,7 +109,7 @@
         placeholder="000000"
         [value]="colorHEX()"
         (input)="changeColorHandler(inputHEX.value, 'HEX')"
-        />
+      />
       <crb-clipboard class="ml5" title="Color as HEX" [value]="'#' + colorHEX()" />
     </div>
   </form>
@@ -124,7 +124,7 @@
         placeholder="0,0,0"
         [value]="colorRGB()"
         (input)="changeColorHandler(inputRGB.value, 'RGB')"
-        />
+      />
       <crb-clipboard class="ml5" title="Color as RGB" [value]="'rgba(' + colorRGB() + ',1)'" />
     </div>
   </form>
@@ -139,7 +139,7 @@
         placeholder="000000"
         [value]="colorHEXWeb()"
         disabled
-        />
+      />
       <crb-clipboard class="ml5" title="Websafe as HEX" [value]="'#' + colorHEXWeb()" />
     </div>
   </form>
@@ -154,7 +154,7 @@
         placeholder="0,0,0"
         [value]="colorRGBWeb()"
         disabled
-        />
+      />
       <crb-clipboard class="ml5" title="Websafe as RGB" [value]="'rgba(' + colorRGBWeb() + ',1)'" />
     </div>
   </form>
@@ -165,7 +165,7 @@
       [(color)]="colorPickerWeb"
       (changeColor)="changeColorHandler($event)"
       disabled="true"
-      />
+    />
   </form>
   <form class="crbInput">
     <label for="inputName">Color name</label>
@@ -176,7 +176,7 @@
         #inputName
         [(ngModel)]="colorName"
         (ngModelChange)="changeColorHandler($event)"
-        >
+      >
         <option [value]="'default'" disabled>no name</option>
         @for (name of names; track $index) {
           <option [value]="codes[$index]">
@@ -189,7 +189,7 @@
           class="ml5"
           title="Color name"
           [value]="names[codes.indexOf(inputName.value)]"
-          />
+        />
       }
     </div>
   </form>
@@ -204,7 +204,7 @@
         placeholder="0,0,0"
         [value]="colorHWB()"
         (input)="changeColorHandler(inputHWB.value, 'HWB')"
-        />
+      />
       <crb-clipboard class="ml5" title="Color as HWB" [value]="'hwb(' + colorHWB() + ')'" />
     </div>
   </form>
@@ -228,7 +228,7 @@
               'HSV'
             )
           "
-          />
+        />
         <span>°</span>
       </div>
       <div class="spacer"></div>
@@ -249,7 +249,7 @@
               'HSV'
             )
           "
-          />
+        />
         <span>%</span>
       </div>
       <div class="spacer"></div>
@@ -270,7 +270,7 @@
               'HSV'
             )
           "
-          />
+        />
         <span>%</span>
       </div>
     </div>
@@ -295,7 +295,7 @@
               'HSL'
             )
           "
-          />
+        />
         <span>°</span>
       </div>
       <div class="spacer"></div>
@@ -316,7 +316,7 @@
               'HSL'
             )
           "
-          />
+        />
         <span>%</span>
       </div>
       <div class="spacer"></div>
@@ -337,7 +337,7 @@
               'HSL'
             )
           "
-          />
+        />
         <span>%</span>
       </div>
     </div>
@@ -368,7 +368,7 @@
               'CMYK'
             )
           "
-          />
+        />
         <span> %</span>
       </div>
       <div class="spacer"></div>
@@ -395,7 +395,7 @@
               'CMYK'
             )
           "
-          />
+        />
         <span> %</span>
       </div>
       <div class="spacer"></div>
@@ -422,7 +422,7 @@
               'CMYK'
             )
           "
-          />
+        />
         <span> %</span>
       </div>
       <div class="spacer"></div>
@@ -449,7 +449,7 @@
               'CMYK'
             )
           "
-          />
+        />
         <span> %</span>
       </div>
     </div>

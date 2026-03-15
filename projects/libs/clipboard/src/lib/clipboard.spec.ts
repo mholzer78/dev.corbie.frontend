@@ -8,9 +8,8 @@ describe('Clipboard', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Clipboard]
-    })
-    .compileComponents();
+      imports: [Clipboard],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Clipboard);
     component = fixture.componentInstance;

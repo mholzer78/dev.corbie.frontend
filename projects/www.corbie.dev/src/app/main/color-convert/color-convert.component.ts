@@ -1,7 +1,6 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 import cbConvert from '@corbie.dev/color-convert';
 import { TCbCmyk, TCbDefault } from '@corbie.dev/color-convert/dist/modules/Color';
 
@@ -212,7 +211,10 @@ export class ColorConvertComponent extends SiteBlueprint implements OnInit, OnDe
     let valid = true;
     if (rgbStringArray.length >= 3 && rgbStringArray[2] !== '') {
       for (let i = 0; i <= 2; i++) {
-        valid = valid && Number.parseInt(rgbStringArray[i]) >= 0 && Number.parseInt(rgbStringArray[i]) <= 255;
+        valid =
+          valid &&
+          Number.parseInt(rgbStringArray[i]) >= 0 &&
+          Number.parseInt(rgbStringArray[i]) <= 255;
         rgbNumberArray[i] = Number.parseInt(rgbStringArray[i]);
       }
       if (valid) {

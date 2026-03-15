@@ -43,7 +43,7 @@ export class LocalStorage {
       | 'permission'
       | 'changeCase'
       | 'loremIpsum'
-      | 'loremImage'
+      | 'loremImage',
   ) {
     if (key) {
       return this.storage[key];
@@ -54,7 +54,7 @@ export class LocalStorage {
 
   setProp(
     key: 'main' | 'color' | 'password' | 'permission' | 'changeCase' | 'loremIpsum' | 'loremImage',
-    value: object
+    value: object,
   ) {
     let tempStorage = { ...this.storage };
     tempStorage[key] = value;

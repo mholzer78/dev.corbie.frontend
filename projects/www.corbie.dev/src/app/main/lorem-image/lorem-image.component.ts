@@ -22,7 +22,14 @@ export class LoremImageComponent extends SiteBlueprint implements OnInit, OnDest
   height = signal(400);
   svgDataUrl = signal('');
   link = computed(() => {
-    return 'https://api.corbie.dev/lorem-image/' + this.width() + '/' + this.height() + '/' + this.color().substring(1);
+    return (
+      'https://api.corbie.dev/lorem-image/' +
+      this.width() +
+      '/' +
+      this.height() +
+      '/' +
+      this.color().substring(1)
+    );
   });
   filename = computed(() => {
     this.width().toString() +

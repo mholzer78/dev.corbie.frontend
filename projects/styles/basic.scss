@@ -1,5 +1,6 @@
 @use 'modules/fonts';
 @use 'modules/page';
+@use 'modules/input';
 
 @include fonts.faces;
 
@@ -12,3 +13,8 @@ body {
 
 @include page.spacer;
 @include page.layout;
+@include input.crbInput;
+@include input.crbRange;
+@include input.crbTextarea;
+@include input.crbColor;
+@include input.crbCheckbox;

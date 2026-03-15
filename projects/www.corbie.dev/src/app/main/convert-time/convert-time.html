@@ -1,0 +1,142 @@
+<div>
+  <div class="handles">
+    <form class="crbInput">
+      <label for="inputWeeks">Weeks</label>
+      <input
+        id="inputWeeks"
+        name="inputWeeks"
+        type="number"
+        maxlength="7"
+        size="7"
+        placeholder="0"
+        min="0"
+        max="1000"
+        [(ngModel)]="inputVal[0]"
+        (input)="changeValue()"
+      />
+    </form>
+    <form class="crbInput">
+      <label for="inputDays">Days</label>
+      <input
+        id="inputDays"
+        name="inputDays"
+        type="number"
+        maxlength="7"
+        size="7"
+        placeholder="0"
+        min="0"
+        max="1000"
+        [(ngModel)]="inputVal[1]"
+        (input)="changeValue()"
+      />
+    </form>
+    <form class="crbInput">
+      <label for="inputHours">Hours</label>
+      <input
+        id="inputHours"
+        name="inputHours"
+        type="number"
+        maxlength="7"
+        size="7"
+        placeholder="0"
+        min="0"
+        max="1000"
+        [(ngModel)]="inputVal[2]"
+        (input)="changeValue()"
+      />
+    </form>
+    <form class="crbInput">
+      <label for="inputMinutes">Minutes</label>
+      <input
+        id="inputMinutes"
+        name="inputMinutes"
+        type="number"
+        maxlength="7"
+        size="7"
+        placeholder="0"
+        min="0"
+        max="1000"
+        [(ngModel)]="inputVal[3]"
+        (input)="changeValue()"
+      />
+    </form>
+    <form class="crbInput">
+      <label for="inputSeconds">Seconds</label>
+      <input
+        id="inputSeconds"
+        name="inputSeconds"
+        type="number"
+        maxlength="7"
+        size="7"
+        placeholder="0"
+        min="0"
+        max="1000"
+        [(ngModel)]="inputVal[4]"
+        (input)="changeValue()"
+      />
+    </form>
+    <form class="crbInput">
+      <label for="inputMilliSec">MS</label>
+      <input
+        id="inputMilliSec"
+        name="inputMilliSec"
+        type="number"
+        maxlength="7"
+        size="7"
+        placeholder="0"
+        min="0"
+        max="1000"
+        [(ngModel)]="inputVal[5]"
+        (input)="changeValue()"
+      />
+    </form>
+  </div>
+  <div class="handles">
+    <form class="fullWidth">
+      <label for="length">Text</label>
+      <input id="length" name="length" type="text" placeholder="0" [(ngModel)]="inputText" />
+    </form>
+  </div>
+  <form class="crbInput sliders_control">
+    <input
+      id="slider1"
+      name="slider1"
+      type="range"
+      min="0"
+      max="5"
+      [(ngModel)]="slider1"
+      (input)="changeValue()"
+    />
+    <input
+      id="slider2"
+      name="slider2"
+      type="range"
+      min="0"
+      max="5"
+      [(ngModel)]="slider2"
+      (input)="changeValue()"
+    />
+  </form>
+  <div class="handles">
+    <div>Weeks</div>
+    <div>Days</div>
+    <div>Hours</div>
+    <div>Minutes</div>
+    <div>Seconds</div>
+    <div>Milliseconds</div>
+  </div>
+  <div class="handles">
+    <form class="crbInput">
+      <label for="masterR">Text</label>
+      <textarea
+        id="text"
+        name="text"
+        placeholder="Please enter the text you wanna transform!"
+        rows="6"
+        cols="58"
+        [(ngModel)]="outputTextArea"
+        disabled
+      ></textarea>
+    </form>
+  </div>
+</div>

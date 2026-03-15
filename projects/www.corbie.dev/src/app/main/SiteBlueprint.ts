@@ -17,14 +17,8 @@ export abstract class SiteBlueprint {
     return this.localStorageService.getProp(key);
   }
   setStorage(
-    key:
-      | 'color'
-      | 'password'
-      | 'permission'
-      | 'changeCase'
-      | 'loremIpsum'
-      | 'loremImage',
-    value: {}
+    key: 'color' | 'password' | 'permission' | 'changeCase' | 'loremIpsum' | 'loremImage',
+    value: {},
   ): void {
     this.localStorageService.setProp(key, value);
   }

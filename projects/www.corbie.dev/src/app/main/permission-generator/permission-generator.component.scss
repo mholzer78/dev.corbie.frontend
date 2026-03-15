@@ -1,8 +1,3 @@
-@use '../../../../../styles/modules/input.scss';
-
-@include input.crbInput;
-@include input.crbCheckbox;
-
 .table {
   display: flex;
   flex-flow: row wrap;

@@ -50,10 +50,7 @@ const convert = [
   templateUrl: './permission-generator.component.html',
   styleUrl: './permission-generator.component.scss',
 })
-export class PermissionGeneratorComponent
-  extends SiteBlueprint
-  implements OnInit, OnDestroy
-{
+export class PermissionGeneratorComponent extends SiteBlueprint implements OnInit, OnDestroy {
   permBool = signal(new Array<boolean>(9));
   permChar = signal('');
   permNumber = signal('');
@@ -124,9 +121,9 @@ export class PermissionGeneratorComponent
     let tempChar: string = '-';
     this.permBool().forEach((item: boolean, index: number) => {
       if (item) {
-          tempChar += convert[index].char;
-        } else {
-          tempChar += '-';
+        tempChar += convert[index].char;
+      } else {
+        tempChar += '-';
       }
     });
     this.permChar.set(tempChar);

@@ -8,9 +8,8 @@ describe('Http404', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Http404]
-    })
-    .compileComponents();
+      imports: [Http404],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Http404);
     component = fixture.componentInstance;

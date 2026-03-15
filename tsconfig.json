@@ -4,27 +4,13 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@lib/clipboard": [
-        "./dist/lib/clipboard"
-      ],
-      "@lib/icons": [
-        "./dist/lib/icons"
-      ],
-      "@libs/clipboard": [
-        "./dist/libs/clipboard"
-      ],
-      "@libs/http404": [
-        "./dist/libs/http404"
-      ],
-      "@libs/icons": [
-        "./dist/libs/icons"
-      ],
-      "@libs/local-storage": [
-        "./dist/libs/local-storage"
-      ],
-      "@libs/nav": [
-        "./dist/libs/nav"
-      ],
+      "@lib/clipboard": ["./dist/lib/clipboard"],
+      "@lib/icons": ["./dist/lib/icons"],
+      "@libs/clipboard": ["./dist/libs/clipboard"],
+      "@libs/http404": ["./dist/libs/http404"],
+      "@libs/icons": ["./dist/libs/icons"],
+      "@libs/local-storage": ["./dist/libs/local-storage"],
+      "@libs/nav": ["./dist/libs/nav"],
       "crb-lib-clipboard": ["./dist/crb-lib-clipboard"],
       "crb-lib-icons": ["./dist/crb-lib-icons"],
       "crb-lib-nav": ["./dist/crb-lib-nav"],

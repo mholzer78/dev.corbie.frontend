@@ -1,13 +1,15 @@
 @mixin faces {
   @font-face {
     font-family: 'SourceSans';
-    src:  url('/assets/fonts/SourceSans3-Regular.otf.woff2') format('woff2'),
-          url('/assets/fonts/SourceSans3-Regular.otf.woff') format('woff');
+    src:
+      url('/assets/fonts/SourceSans3-Regular.otf.woff2') format('woff2'),
+      url('/assets/fonts/SourceSans3-Regular.otf.woff') format('woff');
   }
-  
+
   @font-face {
     font-family: 'SourceCode';
-    src:  url('/assets/fonts/SourceCodePro-Regular.otf.woff2') format('woff2'),
-          url('/assets/fonts/SourceCodePro-Regular.otf.woff') format('woff');
+    src:
+      url('/assets/fonts/SourceCodePro-Regular.otf.woff2') format('woff2'),
+      url('/assets/fonts/SourceCodePro-Regular.otf.woff') format('woff');
   }
 }

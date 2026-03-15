@@ -1,14 +1,9 @@
-@use '../../../../../styles/modules/input.scss';
-
-@include input.crbInput;
-@include input.crbRange;
-
 #rangeR::-webkit-slider-thumb {
   box-shadow: -30em 0 0 30em #ff0000;
 }
-    #rangeG::-webkit-slider-thumb {
+#rangeG::-webkit-slider-thumb {
   box-shadow: -30em 0 0 30em #00ff00;
 }
-    #rangeB::-webkit-slider-thumb {
+#rangeB::-webkit-slider-thumb {
   box-shadow: -30em 0 0 30em #0000ff;
 }

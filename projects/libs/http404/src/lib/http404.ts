@@ -7,6 +7,4 @@ import { Component } from '@angular/core';
   templateUrl: './http404.html',
   styleUrl: './http404.scss',
 })
-export class Http404 {
-
-}
+export class Http404 {}

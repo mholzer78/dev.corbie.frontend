@@ -1,10 +1,6 @@
 <ul>
   @for (page of pages; track page.title) {
-  <li
-    navItem
-    [page]="page"
-    [showText]="showText"
-  ></li>
+    <li navItem [page]="page" [showText]="showText"></li>
   }
 </ul>
 <div id="navToggle" [class.collapsed]="showText" (keypress)="toggleNav()" (click)="toggleNav()">

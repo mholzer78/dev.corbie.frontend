@@ -8,6 +8,4 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './lorem-image.component.html',
   styleUrl: './lorem-image.component.scss',
 })
-export class LoremImageComponent  {
-
-}
+export class LoremImageComponent {}

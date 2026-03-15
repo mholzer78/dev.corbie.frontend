@@ -1,0 +1,35 @@
+.handles {
+  width: 40em;
+  margin: 1em 0;
+  form {
+    display: inline-block;
+    width: 6.65em;
+    &.fullWidth {
+      width: 37.4em;
+    }
+  }
+  div {
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 6.15em;
+    transform-origin: top;
+    transform: rotate(30deg);
+  }
+}
+
+.sliders_control {
+  position: relative;
+  margin: 2em 0;
+  min-height: 1em;
+}
+
+input[type='range'] {
+  position: absolute;
+  width: 41.7em;
+}
+
+#slider1 {
+  height: 0;
+  z-index: 1;
+  top: 5px;
+}

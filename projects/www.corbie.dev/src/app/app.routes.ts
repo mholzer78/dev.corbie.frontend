@@ -7,14 +7,24 @@ import { ChangeCaseComponent } from './main/change-case/change-case.component';
 import { LoremIpsumComponent } from './main/lorem-ipsum/lorem-ipsum.component';
 import { LoremImageComponent } from './main/lorem-image/lorem-image.component';
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
+import { ConvertTimeComponent } from './main/convert-time/convert-time';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'corbie.dev' },
-  { path: 'color-convert', component: ColorConvertComponent, title:'Color Convert' },
-  { path: 'password-generator', component: PasswordGeneratorComponent, title:'Password Generator' },
-  { path: 'permission-generator', component: PermissionGeneratorComponent, title:'Permission Generator' },
-  { path: 'change-case', component: ChangeCaseComponent, title:'Change Case' },
-  { path: 'lorem-ipsum', component: LoremIpsumComponent, title:'Lorem Ipsum' },
-  { path: 'lorem-image', component: LoremImageComponent, title:'Lorem Image' },
-  { path: '**', component: PageNotFoundComponent, title:'HTTP404' },
+  { path: 'color-convert', component: ColorConvertComponent, title: 'Color Convert' },
+  {
+    path: 'password-generator',
+    component: PasswordGeneratorComponent,
+    title: 'Password Generator',
+  },
+  {
+    path: 'permission-generator',
+    component: PermissionGeneratorComponent,
+    title: 'Permission Generator',
+  },
+  { path: 'change-case', component: ChangeCaseComponent, title: 'Change Case' },
+  { path: 'lorem-ipsum', component: LoremIpsumComponent, title: 'Lorem Ipsum' },
+  { path: 'lorem-image', component: LoremImageComponent, title: 'Lorem Image' },
+  { path: 'convert-time', component: ConvertTimeComponent, title: 'Convert Time' },
+  { path: '**', component: PageNotFoundComponent, title: 'HTTP404' },
 ];

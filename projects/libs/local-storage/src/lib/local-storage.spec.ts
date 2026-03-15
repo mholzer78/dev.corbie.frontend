@@ -8,9 +8,8 @@ describe('LocalStorage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LocalStorage]
-    })
-    .compileComponents();
+      imports: [LocalStorage],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LocalStorage);
     component = fixture.componentInstance;

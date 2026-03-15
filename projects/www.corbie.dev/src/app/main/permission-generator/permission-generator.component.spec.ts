@@ -8,9 +8,8 @@ describe('PermissionGeneratorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PermissionGeneratorComponent]
-    })
-    .compileComponents();
+      imports: [PermissionGeneratorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PermissionGeneratorComponent);
     component = fixture.componentInstance;

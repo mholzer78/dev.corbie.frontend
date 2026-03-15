@@ -15,13 +15,14 @@
 
 <textarea type="text" id="clipboardInput"></textarea>
 @if (success()) {
-<div class="message">
-  <div class="ok icon">✔</div>
-  <div class="ok">{{ title() }} copied to clipboard</div>
-</div>
-} @if (failure()) {
-<div class="message">
-  <div class="nok icon">✘</div>
-  <div class="nok">{{ title() }} copied to clipboard</div>
-</div>
+  <div class="message">
+    <div class="ok icon">✔</div>
+    <div class="ok">{{ title() }} copied to clipboard</div>
+  </div>
+}
+@if (failure()) {
+  <div class="message">
+    <div class="nok icon">✘</div>
+    <div class="nok">{{ title() }} copied to clipboard</div>
+  </div>
 }

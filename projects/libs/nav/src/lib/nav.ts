@@ -7,11 +7,11 @@ import { Routes } from '@angular/router';
 @Component({
   selector: 'nav[CrbNav]',
   standalone: true,
-  imports: [Icons,NavItem],
+  imports: [Icons, NavItem],
   templateUrl: './nav.html',
   styleUrl: './nav.scss',
 })
-export class Nav implements OnInit, OnDestroy{
+export class Nav implements OnInit, OnDestroy {
   routes = input.required<Routes>();
   pages!: Routes;
   changeDesign = output<boolean>();

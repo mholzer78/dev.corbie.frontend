@@ -8,9 +8,8 @@ describe('ChangeCaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChangeCaseComponent]
-    })
-    .compileComponents();
+      imports: [ChangeCaseComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChangeCaseComponent);
     component = fixture.componentInstance;

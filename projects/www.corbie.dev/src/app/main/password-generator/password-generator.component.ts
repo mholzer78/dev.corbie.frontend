@@ -18,10 +18,7 @@ const characters = [
   templateUrl: './password-generator.component.html',
   styleUrl: './password-generator.component.scss',
 })
-export class PasswordGeneratorComponent
-  extends SiteBlueprint
-  implements OnInit, OnDestroy
-{
+export class PasswordGeneratorComponent extends SiteBlueprint implements OnInit, OnDestroy {
   length = signal(0);
   char = signal(new Array<boolean>(5));
   showClear = false;
@@ -65,13 +62,13 @@ export class PasswordGeneratorComponent
     const array = new Uint32Array(this.length());
     globalThis.crypto.getRandomValues(array);
     let lastIndex = -1;
-    array.forEach(random => {
+    array.forEach((random) => {
       let randomArray = random.toString().split('');
       let index = Number.parseInt(randomArray.at(-1)!);
       if (index === lastIndex) {
-        index = Number.parseInt(randomArray.at(-2)!)
+        index = Number.parseInt(randomArray.at(-2)!);
       }
-      result += threshold.charAt(Math.floor(index / 10 * charactersLength));
+      result += threshold.charAt(Math.floor((index / 10) * charactersLength));
       lastIndex = index;
     });
 
