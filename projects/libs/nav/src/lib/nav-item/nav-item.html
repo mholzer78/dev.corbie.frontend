@@ -3,11 +3,7 @@
   routerLinkActive="active"
   [routerLinkActiveOptions]="{ exact: true }"
 >
-  @if (page.title.endsWith('corbie.dev')) {
-    <img src="assets/corbie.svg" alt="{{ page.id }}" width="50" />
-  } @else {
-    <crb-icon [image]="iconName" [width]="40" [height]="40" />
-  }
+  <crb-icon [image]="iconName" [width]="40" [height]="40" />
   @if (showText) {
     <span>
       {{ page.title }}

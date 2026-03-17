@@ -1,43 +1,63 @@
-<div>
-  <form class="crbInput">
-    <label for="masterR">Text</label>
-    <textarea
-      id="text"
-      name="text"
-      placeholder="Please enter the text you wanna transform!"
-      rows="15"
-      cols="75"
-      [value]="text()"
-      disabled
-    ></textarea>
-  </form>
-  <form class="crbInput">
-    <label for="options">Options</label>
-    <div class="flex">
-      <input
-        id="length"
-        type="number"
-        name="length"
-        maxlength="2"
-        size="2"
-        placeholder="0"
-        min="1"
-        max="99"
-        [(ngModel)]="length"
-      />
-      <select
-        id="options"
-        class="ml5"
-        name="options"
-        #options
-        [(ngModel)]="option"
-        (ngModelChange)="onChangeOption($event)"
-      >
-        <option value="letters" [attr.selected]="option() === 'letters'">Letters</option>
-        <option value="words" [attr.selected]="option() === 'words'">Words</option>
-        <option value="paragraphs" [attr.selected]="option() === 'paragraphs'">Paragraphs</option>
-      </select>
-      <crb-clipboard class="ml5" title="Text" [value]="text()" />
+<header>
+  <h1>Lorem Ipsum Generator</h1>
+  <h2>Generate placeholder text for UI design and development</h2>
+</header>
+<div class="card-wrapper">
+  <div class="card">
+    <div class="inner">
+      Settings
+      <div class="crbInput buttonWrapper">
+        <input
+          type="radio"
+          id="letters"
+          name="options"
+          value="letters"
+          [attr.checked]="option() === 'letters'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="letters">Letters</label>
+        <input
+          type="radio"
+          id="words"
+          name="options"
+          value="words"
+          [attr.checked]="option() === 'words'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="words">Words</label>
+        <input
+          type="radio"
+          id="paragraphs"
+          name="options"
+          value="paragraphs"
+          [attr.checked]="option() === 'paragraphs'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="paragraphs">Paragraphs</label>
+      </div>
+      Amount
+      <div>
+        <input
+          id="length"
+          type="number"
+          name="length"
+          maxlength="2"
+          size="2"
+          placeholder="0"
+          min="1"
+          max="99"
+          [(ngModel)]="length"
+        />
+      </div>
     </div>
-  </form>
+  </div>
+  <div class="card">
+    <div class="inner">
+      <div class="flex">
+        Generated Text
+        <div class="iconButton"><crb-clipboard title="Octal" [value]="'TBD'" />Copy Result</div>
+      </div>
+      <textarea id="text" name="text" rows="5" cols="75" [value]="text()" disabled></textarea>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,30 @@
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  > * {
+    flex: 1;
+  }
+}
+
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border: 2px solid var(--sec-bg-color);
+  border-radius: 0.5em;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+  &:hover {
+    background: var(--sec-bg-color);
+    border-color: var(--sec-fg-color);
+  }
+  crb-icon {
+    margin-right: 0.5rem;
+  }
+}

@@ -1,65 +1,66 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Clipboard } from '@libs/clipboard';
 
 import { Icons } from '@libs/icons';
 import { SiteBlueprint } from '../SiteBlueprint';
 
 const convert = [
   {
-    char: 'r',
-    number: 400,
+    symbol: 'r',
+    octal: 400,
   },
   {
-    char: 'w',
-    number: 200,
+    symbol: 'w',
+    octal: 200,
   },
   {
-    char: 'x',
-    number: 100,
+    symbol: 'x',
+    octal: 100,
   },
   {
-    char: 'r',
-    number: 40,
+    symbol: 'r',
+    octal: 40,
   },
   {
-    char: 'w',
-    number: 20,
+    symbol: 'w',
+    octal: 20,
   },
   {
-    char: 'x',
-    number: 10,
+    symbol: 'x',
+    octal: 10,
   },
   {
-    char: 'r',
-    number: 4,
+    symbol: 'r',
+    octal: 4,
   },
   {
-    char: 'w',
-    number: 2,
+    symbol: 'w',
+    octal: 2,
   },
   {
-    char: 'x',
-    number: 1,
+    symbol: 'x',
+    octal: 1,
   },
 ];
 
 @Component({
   selector: 'section[permissionGenerator]',
   standalone: true,
-  imports: [Icons, FormsModule],
+  imports: [FormsModule, Clipboard, Icons],
   templateUrl: './permission-generator.component.html',
   styleUrl: './permission-generator.component.scss',
 })
 export class PermissionGeneratorComponent extends SiteBlueprint implements OnInit, OnDestroy {
   permBool = signal(new Array<boolean>(9));
-  permChar = signal('');
-  permNumber = signal('');
+  permSymbolic = signal('');
+  permOctal = signal('');
 
   ngOnInit(): void {
     let storage = this.getStorage('permission');
     this.permBool.set(storage.bool);
-    this.changePermChar();
-    this.changePermNumber();
+    this.changePermSymbolic();
+    this.changePermOctal();
   }
 
   ngOnDestroy(): void {
@@ -76,27 +77,27 @@ export class PermissionGeneratorComponent extends SiteBlueprint implements OnIni
     let tempArray = this.permBool();
     tempArray[+index!] = value !== 'true';
     this.permBool.set([...tempArray]);
-    this.changePermChar();
-    this.changePermNumber();
+    this.changePermSymbolic();
+    this.changePermOctal();
     this.store2storage();
   }
 
-  onChangeNumber(event: string) {
+  onChangeOctal(event: string) {
     let value = Number.parseInt(event);
     let tempArray: boolean[] = [];
     convert.forEach((convertItem, index: number) => {
-      if (value - convertItem.number >= 0) {
+      if (value - convertItem.octal >= 0) {
         tempArray[index] = true;
-        value -= convertItem.number;
+        value -= convertItem.octal;
       } else {
         tempArray[index] = false;
       }
     });
     this.permBool.set(tempArray);
-    this.changePermChar();
+    this.changePermSymbolic();
   }
 
-  onChangeChar(event: string) {
+  onChangeSymbolic(event: string) {
     let value = event.split('');
     let tempArray: boolean[] = [];
     while (value.length > 9) {
@@ -109,34 +110,34 @@ export class PermissionGeneratorComponent extends SiteBlueprint implements OnIni
       tempArray[index] = char !== '-';
     });
     this.permBool.set(tempArray);
-    this.changePermNumber();
+    this.changePermOctal();
   }
 
   inputCleanup(event: Event) {
-    this.changePermChar();
-    this.changePermNumber();
+    this.changePermSymbolic();
+    this.changePermOctal();
   }
 
-  changePermChar() {
-    let tempChar: string = '-';
+  changePermSymbolic() {
+    let tempSymbolic: string = '-';
     this.permBool().forEach((item: boolean, index: number) => {
       if (item) {
-        tempChar += convert[index].char;
+        tempSymbolic += convert[index].symbol;
       } else {
-        tempChar += '-';
+        tempSymbolic += '-';
       }
     });
-    this.permChar.set(tempChar);
+    this.permSymbolic.set(tempSymbolic);
   }
 
-  changePermNumber() {
-    let tempNumber: number = 0;
+  changePermOctal() {
+    let tempOctal: number = 0;
     this.permBool().forEach((item: boolean, index: number) => {
       if (item) {
-        tempNumber += convert[index].number;
+        tempOctal += convert[index].octal;
       }
     });
-    let tempString = '000' + tempNumber;
-    this.permNumber.set(tempString.substring(tempString.length - 3));
+    let tempString = '000' + tempOctal;
+    this.permOctal.set(tempString.substring(tempString.length - 3));
   }
 }

@@ -1,4 +1,53 @@
-<div>
+<div class="card">
+  <div class="range-container">
+    <div class="range-track"></div>
+    <div class="range-progress" id="rangeProgress"></div>
+
+    <input
+      type="range"
+      min="0"
+      max="5"
+      step="1"
+      value="1"
+      id="minRange"
+      class="range-input"
+      onChange="console.log('first', this.value)"
+    />
+
+    <input
+      type="range"
+      min="0"
+      max="5"
+      step="1"
+      value="4"
+      id="maxRange"
+      class="range-input"
+      onChange="console.log('second', this.value)"
+    />
+
+    <div class="range-labels">
+      <span>0</span>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
   <div class="handles">
     <form class="crbInput">
       <label for="inputWeeks">Weeks</label>

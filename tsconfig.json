@@ -6,7 +6,12 @@
     "paths": {
       "@lib/clipboard": ["./dist/lib/clipboard"],
       "@lib/icons": ["./dist/lib/icons"],
-      "@libs/clipboard": ["./dist/libs/clipboard"],
+      "@libs/clipboard": [
+        "./dist/libs/clipboard"
+      ],
+      "@libs/header": [
+        "./dist/libs/header"
+      ],
       "@libs/http404": ["./dist/libs/http404"],
       "@libs/icons": ["./dist/libs/icons"],
       "@libs/local-storage": ["./dist/libs/local-storage"],
@@ -148,6 +153,12 @@
     },
     {
       "path": "./projects/libs/nav/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/libs/header/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/libs/header/tsconfig.spec.json"
     }
   ]
 }

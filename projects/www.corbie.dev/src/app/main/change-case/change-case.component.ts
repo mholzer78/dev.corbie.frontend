@@ -12,14 +12,13 @@ import { Clipboard } from '@libs/clipboard';
   styleUrl: './change-case.component.scss',
 })
 export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDestroy {
-  textOriginal = '';
+  textOriginal = signal('');
   text = signal('');
-  option = signal('');
+  option = signal('lower');
 
   ngOnInit(): void {
     let storage = this.getStorage('changeCase');
-    this.textOriginal = storage.text;
-    this.text.set(storage.text);
+    this.textOriginal.set(storage.text || '');
     this.option.set(storage.choice);
     this.text.set(this.changeText());
   }
@@ -30,37 +29,39 @@ export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDest
 
   store2storage() {
     this.setStorage('changeCase', {
-      text: this.textOriginal,
+      text: this.textOriginal(),
       choice: this.option(),
     });
   }
 
   onChangeText(event: Event) {
-    this.textOriginal = (<HTMLTextAreaElement>event.target).value;
-    this.text.set(this.textOriginal);
-    this.option.set('keep');
+    this.text.set(this.changeText());
     this.store2storage();
   }
   onChangeOption(event: Event) {
+    this.option.set((event.target as HTMLInputElement).value);
     this.text.set(this.changeText());
     this.store2storage();
   }
 
   changeText() {
+    if (this.textOriginal() == '') {
+      return '';
+    }
     switch (this.option()) {
       case 'lower':
-        return this.text().toLowerCase();
+        return this.textOriginal().toLowerCase();
       case 'upper':
-        return this.text().toUpperCase();
-      case 'capWord': {
-        let words = this.text().toLowerCase().split(' ');
+        return this.textOriginal().toUpperCase();
+      case 'word': {
+        let words = this.textOriginal().toLowerCase().split(' ');
         words.forEach((word, index) => {
           words[index] = [...word][0].toUpperCase() + [...word].slice(1).join('');
         });
         return words.join(' ');
       }
-      case 'capSentence': {
-        let sentences = this.text()
+      case 'sentence': {
+        let sentences = this.textOriginal()
           .toLowerCase()
           .split(/[.,;:!?]/);
         sentences.forEach((sentence, index) => {
@@ -88,8 +89,30 @@ export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDest
         });
         return sentences.join('.');
       }
+      case 'camel': {
+        let words = this.textOriginal().toLowerCase().split(' ');
+        words.forEach((word, index) => {
+          if (index > 0) {
+            words[index] = [...word][0].toUpperCase() + [...word].slice(1).join('');
+          }
+        });
+        return words.join('');
+      }
+      case 'pascal': {
+        let words = this.textOriginal().toLowerCase().split(' ');
+        words.forEach((word, index) => {
+          words[index] = [...word][0].toUpperCase() + [...word].slice(1).join('');
+        });
+        return words.join('');
+      }
+      case 'snake': {
+        return this.textOriginal().toLowerCase().replace(/\s+/g, '_');
+      }
+      case 'kebab': {
+        return this.textOriginal().toLowerCase().replace(/\s+/g, '-');
+      }
       default:
-        return this.textOriginal;
+        return '';
     }
   }
 }

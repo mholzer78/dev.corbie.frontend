@@ -1,8 +1,14 @@
+.code {
+  font-size: 1.25rem;
+}
+label crb-icon {
+  margin-right: 0;
+}
+
 .table {
   display: flex;
   flex-flow: row wrap;
   align-items: normal;
-  max-width: 25dvw;
   margin-top: 0;
   .item {
     display: flex;
@@ -10,7 +16,6 @@
     flex-grow: 1;
     flex-basis: 0;
     padding: 0.5rem 1rem;
-    font-size: 1.5rem;
     &:not(:nth-child(5n + 1)) {
       justify-content: space-around;
     }

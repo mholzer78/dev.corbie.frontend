@@ -1,0 +1,27 @@
+:host {
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100dvw - 5rem);
+  padding: 0 2.5rem;
+  background: var(--main-bg-color);
+  border-bottom: 1px solid var(--sec-bg-color);
+}
+h1 {
+  font-weight: normal;
+  b {
+    font-weight: bolder;
+  }
+}
+a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bottom {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}

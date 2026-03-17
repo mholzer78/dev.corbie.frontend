@@ -1,19 +1,6 @@
-h1 {
-  font-size: 1.5em;
-  &.code {
-    font-family: SourceCode, monospace;
-  }
+h1.code {
+  font-family: SourceCode, monospace;
 }
-
-div.row {
-  max-width: 45dvw;
-  .box {
-    .title {
-      margin-top: -2.6em;
-    }
-    .interaction {
-      display: block;
-      font-size: 1rem;
-    }
-  }
+ul {
+  margin: 0;
 }

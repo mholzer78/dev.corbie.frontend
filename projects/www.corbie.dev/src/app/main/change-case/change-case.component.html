@@ -1,35 +1,128 @@
-<div>
-  <form class="crbInput">
-    <label for="masterR">Text</label>
+<header>
+  <h1>Change Case</h1>
+  <h2>Convert text between uppercase, lowercase, sentence-case, title case and more</h2>
+</header>
+<div class="card">
+  <div class="inner">
     <textarea
       id="text"
       name="text"
-      placeholder="Please enter the text you wanna transform!"
-      rows="15"
+      placeholder="Paste or type your text here"
+      rows="5"
       cols="75"
-      [(ngModel)]="text"
-      (change)="onChangeText($event)"
+      [(ngModel)]="textOriginal"
+      (input)="onChangeText($event)"
     ></textarea>
-  </form>
-  <form class="crbInput">
-    <label for="options">Options</label>
-    <div class="flex">
-      <select
-        id="options"
-        name="options"
-        #options
-        [(ngModel)]="option"
-        (ngModelChange)="onChangeOption($event)"
-      >
-        <option value="keep" [attr.selected]="option() === 'keep'">keep as is</option>
-        <option value="lower" [attr.selected]="option() === 'lower'">all lower case</option>
-        <option value="upper" [attr.selected]="option() === 'upper'">all upper case</option>
-        <option value="capWord" [attr.selected]="option() === 'capWord'">capitalize (word)</option>
-        <option value="capSentence" [attr.selected]="option() === 'capSentence'">
-          capitalize (sentence)
-        </option>
-      </select>
-      <crb-clipboard class="ml5" title="Text" [value]="text()" />
+  </div>
+</div>
+<div class="card-wrapper">
+  <div class="card">
+    <div class="inner">
+      Writing Formats
+      <div class="crbInput buttonWrapper">
+        <input
+          type="radio"
+          id="upper"
+          name="options"
+          value="upper"
+          [attr.checked]="option() === 'upper'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="upper">UPPERCASE</label>
+
+        <input
+          type="radio"
+          id="lower"
+          name="options"
+          value="lower"
+          [attr.checked]="option() === 'lower'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="lower">lowercase</label>
+      </div>
+
+      <div class="crbInput buttonWrapper">
+        <input
+          type="radio"
+          id="sentence"
+          name="options"
+          value="sentence"
+          [attr.checked]="option() === 'sentence'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="sentence">Sentence case</label>
+
+        <input
+          type="radio"
+          id="word"
+          name="options"
+          value="word"
+          [attr.checked]="option() === 'word'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="word">Title case</label>
+      </div>
+      Developer Formats
+      <div class="crbInput buttonWrapper">
+        <input
+          type="radio"
+          id="camel"
+          name="options"
+          value="camel"
+          [attr.checked]="option() === 'camel'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="camel">camelCase</label>
+
+        <input
+          type="radio"
+          id="pascal"
+          name="options"
+          value="pascal"
+          [attr.checked]="option() === 'pascal'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="pascal">PascalCase</label>
+      </div>
+
+      <div class="crbInput buttonWrapper">
+        <input
+          type="radio"
+          id="snake"
+          name="options"
+          value="snake"
+          [attr.checked]="option() === 'snake'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="snake">snake_case</label>
+
+        <input
+          type="radio"
+          id="kebab"
+          name="options"
+          value="kebab"
+          [attr.checked]="option() === 'kebab'"
+          (change)="onChangeOption($event)"
+        />
+        <label class="iconButton" for="kebab">kebab-case</label>
+      </div>
     </div>
-  </form>
+  </div>
+  <div class="card">
+    <div class="inner">
+      <div class="flex">
+        Converted Text
+        <div class="iconButton"><crb-clipboard title="Octal" [value]="'TBD'" />Copy Result</div>
+      </div>
+      <textarea
+        id="text"
+        name="text"
+        placeholder="Result"
+        rows="7"
+        cols="75"
+        [(ngModel)]="text"
+        disabled
+      ></textarea>
+    </div>
+  </div>
 </div>

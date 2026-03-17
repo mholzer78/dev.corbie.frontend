@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 
 interface Storage {
-  main: object;
+  main: StorageMain;
   color: any;
   password: object;
   permission: object;
   changeCase: object;
   loremIpsum: object;
   loremImage: object;
+}
+
+export interface StorageMain {
+  showText: boolean;
+  darkMode: boolean;
 }
 
 @Injectable({
