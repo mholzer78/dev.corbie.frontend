@@ -7,13 +7,8 @@
       "@libs/clipboard": ["./dist/libs/clipboard"],
       "@libs/header": ["./dist/libs/header"],
       "@libs/http404": ["./dist/libs/http404"],
-      "@libs/icons": [
-        "./dist/libs/icons"
-      ],
-      "@libs/input-range": [
-        "./dist/libs/input-range",
-        "./dist/libs/input-range"
-      ],
+      "@libs/icons": ["./dist/libs/icons"],
+      "@libs/input-range": ["./dist/libs/input-range"],
       "@libs/inputRange": ["./dist/libs/input-range"],
       "@libs/local-storage": ["./dist/libs/local-storage"],
       "@libs/nav": ["./dist/libs/nav"]
@@ -40,42 +35,6 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/crb-lib-nav/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/crb-lib-nav/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/www.corbie.dev/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/www.corbie.dev/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/crb-lib-icons/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/crb-lib-icons/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/crb-lib-local-storage/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/crb-lib-local-storage/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/crb-lib-clipboard/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/crb-lib-clipboard/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/crb-lib-http404/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/crb-lib-http404/tsconfig.spec.json"
-    },
-    {
       "path": "./projects/www.corbie.dev/tsconfig.app.json"
     },
     {
@@ -86,39 +45,6 @@
     },
     {
       "path": "./projects/api.corbie.dev/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/corbie.dev/ng-lib-styles/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/corbie.dev/ng-lib-styles/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/lib/ng-lib-styles/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/lib/ng-lib-styles/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/libs/ng-lib-styles/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/libs/ng-lib-styles/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/libs/ng-lib-assets/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/lib/clipboard/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/lib/clipboard/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/lib/icons/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/lib/icons/tsconfig.spec.json"
     },
     {
       "path": "./projects/libs/clipboard/tsconfig.lib.json"
@@ -155,18 +81,6 @@
     },
     {
       "path": "./projects/libs/header/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/libs/input-range/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/libs/input-range/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/libs/input-range/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/libs/input-range/tsconfig.spec.json"
     },
     {
       "path": "./projects/libs/input-range/tsconfig.lib.json"

@@ -1,4 +1,4 @@
-import { Component, inject, input, OnDestroy, OnInit, output } from '@angular/core';
+import { Component, inject, input, OnDestroy, OnInit } from '@angular/core';
 import { LocalStorage, StorageMain } from '@libs/local-storage';
 import { Icons } from '@libs/icons';
 import { NavItem } from './nav-item/nav-item';

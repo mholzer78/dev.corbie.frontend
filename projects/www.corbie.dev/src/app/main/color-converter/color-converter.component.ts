@@ -6,6 +6,7 @@ import { TCbCmyk, TCbDefault } from '@corbie.dev/color-convert/dist/modules/Colo
 
 import { SiteBlueprint } from '../SiteBlueprint';
 import { Clipboard } from '@libs/clipboard';
+import { Icons } from '@libs/icons';
 
 import { ColorConverterService } from './color-converter.service';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
@@ -13,7 +14,7 @@ import { ColorPickerComponent } from './color-picker/color-picker.component';
 @Component({
   selector: 'section[colorConvert]',
   standalone: true,
-  imports: [FormsModule, Clipboard, ColorPickerComponent],
+  imports: [FormsModule, Clipboard, ColorPickerComponent, Icons],
   providers: [ColorConverterService],
   templateUrl: './color-converter.component.html',
   styleUrls: ['./color-converter.component.scss'],
@@ -37,6 +38,7 @@ export class ColorConverterComponent extends SiteBlueprint implements OnInit, On
   colorHSV = signal([0, 0, 0]);
   colorHSL = signal([0, 0, 0]);
   colorHWB = signal('');
+  colorOKLCH = signal('');
 
   colorName = signal('default');
 
@@ -82,7 +84,11 @@ export class ColorConverterComponent extends SiteBlueprint implements OnInit, On
     }
     if (exception !== 'HWB') {
       let tempColor = cbConvert.rgb.hwb(this.master() as TCbDefault);
-      this.colorHWB.set(tempColor[0] + ',' + tempColor[1] + '%,' + tempColor[2] + '%');
+      this.colorHWB.set(tempColor[0] + ' ' + tempColor[1] + '% ' + tempColor[2] + '%');
+    }
+    if (exception !== 'OKLCH') {
+      let tempColor = cbConvert.rgb.oklch(this.master() as TCbDefault);
+      this.colorOKLCH.set(tempColor[0] + '% ' + tempColor[1] + ' ' + tempColor[2]);
     }
     this.colorHEXWeb.set(cbConvert.rgb.hex(this.master2Websafe(this.master()) as TCbDefault));
     this.colorRGBWeb.set(this.master2Websafe(this.master()).join(','));
@@ -122,6 +128,9 @@ export class ColorConverterComponent extends SiteBlueprint implements OnInit, On
     if (exception !== 'HWB') {
       this.colorHWB.set('');
     }
+    if (exception !== 'OKLCH') {
+      this.colorOKLCH.set('');
+    }
     this.colorHEXWeb.set('');
     this.colorRGBWeb.set('');
     this.colorPicker.set('#37474f');
@@ -160,26 +169,45 @@ export class ColorConverterComponent extends SiteBlueprint implements OnInit, On
         return this.validateCMYK(newColor);
       }
       case 'HWB':
+      case 'OKLCH':
       case 'HSV':
       case 'HSL': {
-        let tempStringArray = newColor.replaceAll(/[^0-9.,]/g, '').split(',');
+        let tempStringArray = newColor.replaceAll(/[^0-9 .,]/g, '').split(' ');
         let tempNumberArray: number[] = [];
         let valid = true;
-        tempStringArray.forEach((item, index) => {
-          tempNumberArray.push(Number.parseInt(item));
-          if (
-            item == '' ||
-            Number.parseInt(item) < 0 ||
-            (index == 0 && Number.parseInt(item) > 360) ||
-            (index > 0 && Number.parseInt(item) > 100)
-          ) {
-            valid = false;
-          }
-        });
+        if (origin == 'OKLCH') {
+          tempStringArray.forEach((item, index) => {
+            tempNumberArray.push(Number.parseFloat(item));
+            if (
+              item == '' ||
+              Number.parseInt(item) < 0 ||
+              (index == 0 && Number.parseInt(item) > 100) ||
+              (index == 1 && Number.parseInt(item) > 0.4) ||
+              (index == 2 && Number.parseInt(item) > 360)
+            ) {
+              valid = false;
+            }
+          });
+        } else {
+          tempStringArray.forEach((item, index) => {
+            tempNumberArray.push(Number.parseFloat(item));
+            if (
+              item == '' ||
+              Number.parseInt(item) < 0 ||
+              (index == 0 && Number.parseInt(item) > 360) ||
+              (index > 0 && Number.parseInt(item) > 100)
+            ) {
+              valid = false;
+            }
+          });
+        }
         if (valid) {
           switch (origin) {
             case 'HWB':
               this.updateMaster(cbConvert.hwb.rgb(tempNumberArray as TCbDefault));
+              break;
+            case 'OKLCH':
+              this.updateMaster(cbConvert.oklch.rgb(tempNumberArray as TCbDefault));
               break;
             case 'HSV':
               this.updateMaster(cbConvert.hsv.rgb(tempNumberArray as TCbDefault));

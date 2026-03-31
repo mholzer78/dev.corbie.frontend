@@ -5,7 +5,6 @@ import { Component, input, model, output } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './color-picker.component.html',
-  styleUrl: './color-picker.component.scss',
 })
 export class ColorPickerComponent {
   color = model<string>('#000000');

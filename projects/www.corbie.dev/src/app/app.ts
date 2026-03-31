@@ -26,11 +26,10 @@ export class App implements OnInit {
     console.debug('Hello Corbie');
 
     const storageMain = (this.localStorageService.getProp('main') as StorageMain) || undefined;
-    if (storageMain !== undefined) {
-      this.darkmode.set(storageMain.darkMode);
-    } else {
-      const darkModeMql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-      if (darkModeMql && darkModeMql.matches) {
+
+    if (storageMain == undefined) {
+      const darkModeMql = globalThis.matchMedia('(prefers-color-scheme: dark)');
+      if (darkModeMql?.matches) {
         this.darkmode.set(true);
       }
       const storageMain = {
@@ -38,6 +37,8 @@ export class App implements OnInit {
         darkMode: this.darkmode(),
       };
       this.localStorageService.setProp('main', storageMain);
+    } else {
+      this.darkmode.set(storageMain.darkMode);
     }
   }
 

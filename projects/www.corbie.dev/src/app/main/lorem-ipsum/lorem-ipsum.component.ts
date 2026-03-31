@@ -13,7 +13,6 @@ const loremText =
   standalone: true,
   imports: [FormsModule, Clipboard, Icons],
   templateUrl: './lorem-ipsum.component.html',
-  styleUrl: './lorem-ipsum.component.scss',
 })
 export class LoremIpsumComponent extends SiteBlueprint implements OnInit, OnDestroy {
   length = signal(0);

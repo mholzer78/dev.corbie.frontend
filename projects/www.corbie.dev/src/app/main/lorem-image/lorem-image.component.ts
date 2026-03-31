@@ -32,12 +32,14 @@ export class LoremImageComponent extends SiteBlueprint implements OnInit, OnDest
     );
   });
   filename = computed(() => {
-    this.width().toString() +
+    return (
+      this.width().toString() +
       'x' +
       this.height().toString() +
       '_' +
       this.color().slice(1) +
-      '_corbie.png';
+      '_corbie.png'
+    );
   });
 
   ngOnInit(): void {

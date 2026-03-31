@@ -10,7 +10,6 @@ import { Icons } from '@libs/icons';
   standalone: true,
   imports: [Icons, FormsModule, Clipboard],
   templateUrl: './change-case.component.html',
-  styleUrl: './change-case.component.scss',
 })
 export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDestroy {
   textOriginal = signal('');
@@ -110,10 +109,10 @@ export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDest
         return words.join('');
       }
       case 'snake': {
-        return this.textOriginal().toLowerCase().replace(/\s+/g, '_');
+        return this.textOriginal().toLowerCase().replaceAll(/\s+/g, '_');
       }
       case 'kebab': {
-        return this.textOriginal().toLowerCase().replace(/\s+/g, '-');
+        return this.textOriginal().toLowerCase().replaceAll(/\s+/g, '-');
       }
       default:
         return '';
@@ -124,7 +123,7 @@ export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDest
 
     return {
       characters: text.length,
-      charactersNoSpaces: text.replace(/\s/g, '').length,
+      charactersNoSpaces: text.replaceAll(/\s/g, '').length,
       words: words.length,
       sentences: (text.match(/[^.!?]+[.!?]+/g) || []).length,
       //lines: text.split(/\r?\n/).length,

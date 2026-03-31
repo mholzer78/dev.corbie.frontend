@@ -1,9 +1,27 @@
-#rangeR::-webkit-slider-thumb {
-  box-shadow: -30em 0 0 30em #ff0000;
+input[type='range'] {
+  &#rangeR {
+    accent-color: red;
+  }
+  &#rangeG {
+    accent-color: green;
+  }
+  &#rangeB {
+    accent-color: blue;
+  }
 }
-#rangeG::-webkit-slider-thumb {
-  box-shadow: -30em 0 0 30em #00ff00;
+
+.flex .flex {
+  input {
+    margin: 0 0.25rem;
+  }
+  label {
+    padding-bottom: 0;
+  }
 }
-#rangeB::-webkit-slider-thumb {
-  box-shadow: -30em 0 0 30em #0000ff;
+
+.iconButton {
+  padding: 0.25rem;
+  .content {
+    padding: 0.125rem 0.5rem;
+  }
 }
