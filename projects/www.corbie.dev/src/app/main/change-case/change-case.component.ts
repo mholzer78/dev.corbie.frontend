@@ -121,11 +121,15 @@ export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDest
   analyzeText(text: string) {
     const words = text.trim().match(/\b\w+\b/g) || [];
 
+    const segmenter = new Intl.Segmenter('en', { granularity: 'sentence' });
+    const sentences = Array.from(segmenter.segment(text));
+    const sentenceCount = sentences.length;
+
     return {
       characters: text.length,
       charactersNoSpaces: text.replaceAll(/\s/g, '').length,
       words: words.length,
-      sentences: (text.match(/[^.!?]+[.!?]+/g) || []).length,
+      sentences: sentenceCount,
       //lines: text.split(/\r?\n/).length,
       //paragraphs: text.split(/\n\s*\n/).filter((p) => p.trim()).length,
       //numbers: (text.match(/\d+/g) || []).length,
