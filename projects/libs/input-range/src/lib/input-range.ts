@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, input, output, signal } from '@angular/core';
+import { Component, computed, input, OnInit, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './input-range.html',
   styleUrl: './input-range.scss',
 })
-export class InputRange {
+export class InputRange implements OnInit {
   initRange = input.required<{ min: number; max: number }>();
   sliderMax = input.required<number>();
   slider = signal<number>(0);

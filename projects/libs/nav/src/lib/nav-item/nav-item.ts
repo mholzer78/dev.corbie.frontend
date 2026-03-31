@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { Icons } from '@libs/icons';
@@ -10,7 +10,7 @@ import { Icons } from '@libs/icons';
   templateUrl: './nav-item.html',
   styleUrl: './nav-item.scss',
 })
-export class NavItem {
+export class NavItem implements OnInit {
   @Input() page!: any;
   @Input() showText!: boolean;
   iconName = '';

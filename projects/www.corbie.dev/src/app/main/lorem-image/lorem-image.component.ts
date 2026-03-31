@@ -6,7 +6,6 @@ import { Icons } from '@libs/icons';
 import cbLoremImage from '@corbie.dev/lorem-image';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable({ providedIn: 'root' })
 @Component({
   selector: 'section[loremImage]',
   standalone: true,
