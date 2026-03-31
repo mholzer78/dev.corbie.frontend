@@ -1,5 +1,6 @@
 import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { Clipboard } from '@libs/clipboard';
 import { Icons } from '@libs/icons';
 import { SiteBlueprint } from '../SiteBlueprint';
@@ -19,6 +20,7 @@ const characters = [
   styleUrl: './password-generator.component.scss',
 })
 export class PasswordGeneratorComponent extends SiteBlueprint implements OnInit, OnDestroy {
+  sliderMax = 128;
   length = signal(0);
   char = signal(new Array<boolean>(5));
   showClear = false;

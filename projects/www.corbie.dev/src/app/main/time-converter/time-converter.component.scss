@@ -1,0 +1,19 @@
+input[type='number'] {
+  width: 10dvw;
+}
+
+input-range {
+  width: 85.5%;
+}
+#slot-indicators > div {
+  flex: 1;
+  margin-left: 0.25em;
+}
+
+.outputText .ellipsis {
+  max-width: 100%;
+  font-size: 1.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

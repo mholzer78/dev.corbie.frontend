@@ -14,6 +14,7 @@ export class Clipboard {
   failure = signal(false);
 
   copyToClipboard() {
+    console.log('copyToClipboard');
     let inputEl = document.getElementById('clipboardInput') as HTMLTextAreaElement;
 
     inputEl.value = this.value();

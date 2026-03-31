@@ -1,7 +1,7 @@
 <div class="page">
 
   <header class="page-header">
-    <h1>Color Converter</h1>
+    <h1>Color Converterer</h1>
     <p>Convert colors between HEX, RGB, HSL, CMYK and more.</p>
   </header>
 

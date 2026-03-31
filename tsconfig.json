@@ -4,23 +4,19 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@lib/clipboard": ["./dist/lib/clipboard"],
-      "@lib/icons": ["./dist/lib/icons"],
-      "@libs/clipboard": [
-        "./dist/libs/clipboard"
-      ],
-      "@libs/header": [
-        "./dist/libs/header"
-      ],
+      "@libs/clipboard": ["./dist/libs/clipboard"],
+      "@libs/header": ["./dist/libs/header"],
       "@libs/http404": ["./dist/libs/http404"],
-      "@libs/icons": ["./dist/libs/icons"],
+      "@libs/icons": [
+        "./dist/libs/icons"
+      ],
+      "@libs/input-range": [
+        "./dist/libs/input-range",
+        "./dist/libs/input-range"
+      ],
+      "@libs/inputRange": ["./dist/libs/input-range"],
       "@libs/local-storage": ["./dist/libs/local-storage"],
-      "@libs/nav": ["./dist/libs/nav"],
-      "crb-lib-clipboard": ["./dist/crb-lib-clipboard"],
-      "crb-lib-icons": ["./dist/crb-lib-icons"],
-      "crb-lib-nav": ["./dist/crb-lib-nav"],
-      "crb-lib-local-storage": ["./dist/crb-lib-local-storage"],
-      "crb-lib-http404": ["./dist/crb-lib-http404"]
+      "@libs/nav": ["./dist/libs/nav"]
     },
     "strict": true,
     "noImplicitOverride": true,
@@ -159,6 +155,24 @@
     },
     {
       "path": "./projects/libs/header/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/libs/input-range/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/libs/input-range/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/libs/input-range/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/libs/input-range/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/libs/input-range/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/libs/input-range/tsconfig.spec.json"
     }
   ]
 }

@@ -7,25 +7,25 @@ import { TCbCmyk, TCbDefault } from '@corbie.dev/color-convert/dist/modules/Colo
 import { SiteBlueprint } from '../SiteBlueprint';
 import { Clipboard } from '@libs/clipboard';
 
-import { ColorConvertService } from './color-convert.service';
+import { ColorConverterService } from './color-converter.service';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
 
 @Component({
   selector: 'section[colorConvert]',
   standalone: true,
   imports: [FormsModule, Clipboard, ColorPickerComponent],
-  providers: [ColorConvertService],
-  templateUrl: './color-convert.component.html',
-  styleUrls: ['./color-convert.component.scss'],
+  providers: [ColorConverterService],
+  templateUrl: './color-converter.component.html',
+  styleUrls: ['./color-converter.component.scss'],
 })
-export class ColorConvertComponent extends SiteBlueprint implements OnInit, OnDestroy {
-  private readonly colorConvertService = inject(ColorConvertService);
+export class ColorConverterComponent extends SiteBlueprint implements OnInit, OnDestroy {
+  private readonly colorConverterService = inject(ColorConverterService);
   masterR = signal(0);
   masterG = signal(0);
   masterB = signal(0);
   master = signal([0, 0, 0]);
-  names = this.colorConvertService.names;
-  codes = this.colorConvertService.codes;
+  names = this.colorConverterService.names;
+  codes = this.colorConverterService.codes;
 
   colorHEX = signal('');
   colorRGB = signal('');

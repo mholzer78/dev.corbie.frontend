@@ -1,0 +1,74 @@
+<header>
+  <h1>Time Converter</h1>
+  <h2>Convert between weeks, days, hours, minutes, seconds, and milliseconds instantly.</h2>
+  <hr />
+</header>
+<div class="card">
+  <div class="inner">
+    <div class="flex">
+      <div>Input</div>
+      <div>Output</div>
+    </div>
+    @for (slot of timeSlots; track slot) {
+      <div class="flex">
+        <form class="crbInput">
+          <input
+            id="input{{ slot.title }}"
+            name="input{{ slot.title }}"
+            type="number"
+            size="7"
+            placeholder="0"
+            [(ngModel)]="inputSlots()[$index]"
+            (input)="changeValue()"
+          />
+        </form>
+        {{ slot.title }}
+        <form class="crbInput">
+          <input
+            id="output{{ slot.title }}"
+            name="output{{ slot.title }}"
+            type="number"
+            size="7"
+            placeholder=""
+            [(ngModel)]="outputSlots()[$index]"
+            disabled=""
+          />
+        </form>
+      </div>
+    }
+  </div>
+</div>
+<div class="card">
+  <div class="inner">
+    <input-range
+      [initRange]="range()"
+      [sliderMax]="sliderMax"
+      (changeInput)="changeMinMax($event)"
+    ></input-range>
+    <div class="flex" id="slot-indicators">
+      @for (slot of timeSlots; track slot) {
+        <div>{{ slot.title }}</div>
+      }
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="inner outputText">
+    <div class="flex">
+      <div class="ellipsis">
+        {{ outputText }}
+      </div>
+      <crb-clipboard title="Password" [value]="outputText" class="iconButton">
+        <crb-icon image="copy" width="30" height="30" />Copy
+      </crb-clipboard>
+    </div>
+    <div class="flex">
+      <div class="ellipsis">
+        {{ outputDate }}
+      </div>
+      <crb-clipboard title="Password" [value]="outputDate" class="iconButton">
+        <crb-icon image="copy" width="30" height="30" />Copy
+      </crb-clipboard>
+    </div>
+  </div>
+</div>

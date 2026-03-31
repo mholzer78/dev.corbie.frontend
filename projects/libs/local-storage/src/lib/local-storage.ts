@@ -8,6 +8,7 @@ interface Storage {
   changeCase: object;
   loremIpsum: object;
   loremImage: object;
+  timeconverter: object;
 }
 
 export interface StorageMain {
@@ -30,6 +31,7 @@ export class LocalStorage {
     changeCase: { text: '', choice: 'keep' },
     loremIpsum: { length: 2, choice: 'paragraphs' },
     loremImage: { color: '#ffd801', width: 400, height: 200 },
+    timeconverter: { range: { min: 1, max: 4 }, timeSlots: [] },
   };
 
   constructor() {
@@ -48,7 +50,8 @@ export class LocalStorage {
       | 'permission'
       | 'changeCase'
       | 'loremIpsum'
-      | 'loremImage',
+      | 'loremImage'
+      | 'timeconverter',
   ) {
     if (key) {
       return this.storage[key];
@@ -58,7 +61,15 @@ export class LocalStorage {
   }
 
   setProp(
-    key: 'main' | 'color' | 'password' | 'permission' | 'changeCase' | 'loremIpsum' | 'loremImage',
+    key:
+      | 'main'
+      | 'color'
+      | 'password'
+      | 'permission'
+      | 'changeCase'
+      | 'loremIpsum'
+      | 'loremImage'
+      | 'timeconverter',
     value: object,
   ) {
     let tempStorage = { ...this.storage };

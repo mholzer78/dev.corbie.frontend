@@ -11,13 +11,21 @@ export abstract class SiteBlueprint {
     | 'permission'
     | 'changeCase'
     | 'loremIpsum'
-    | 'loremImage' = '';
+    | 'loremImage'
+    | 'timeconverter' = '';
 
   getStorage(key: typeof this.storageKey) {
     return this.localStorageService.getProp(key);
   }
   setStorage(
-    key: 'color' | 'password' | 'permission' | 'changeCase' | 'loremIpsum' | 'loremImage',
+    key:
+      | 'color'
+      | 'password'
+      | 'permission'
+      | 'changeCase'
+      | 'loremIpsum'
+      | 'loremImage'
+      | 'timeconverter',
     value: {},
   ): void {
     this.localStorageService.setProp(key, value);

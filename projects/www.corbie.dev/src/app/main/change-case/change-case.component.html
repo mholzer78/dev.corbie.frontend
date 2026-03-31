@@ -1,6 +1,7 @@
 <header>
   <h1>Change Case</h1>
   <h2>Convert text between uppercase, lowercase, sentence-case, title case and more</h2>
+  <hr />
 </header>
 <div class="card">
   <div class="inner">
@@ -106,19 +107,29 @@
         />
         <label class="iconButton" for="kebab">kebab-case</label>
       </div>
+      <div>
+        Statistics
+        <div class="flex">
+          <div class="statistic">Characters: {{ countCharacters() }}</div>
+          <div class="statistic">Words: {{ countWords() }}</div>
+          <div class="statistic">Sentences: {{ countSentences() }}</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="card">
     <div class="inner">
       <div class="flex">
         Converted Text
-        <div class="iconButton"><crb-clipboard title="Octal" [value]="'TBD'" />Copy Result</div>
+        <crb-clipboard title="Text" [value]="text()" class="iconButton">
+          <crb-icon image="copy" width="30" height="30" />Copy Result
+        </crb-clipboard>
       </div>
       <textarea
         id="text"
         name="text"
         placeholder="Result"
-        rows="7"
+        rows="10"
         cols="75"
         [(ngModel)]="text"
         disabled

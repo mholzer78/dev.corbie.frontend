@@ -1,0 +1,87 @@
+-) Time Converter
+--) 10000000 + weeks -> calc error
+
+-) 404 Page broken
+
+-) Color Converter
+--) EVERYTHING
+--) add OKLCH
+
+function oklchToRgb(L, C, h) {
+  const rad = (h * Math.PI) / 180;
+
+  // OKLCH → OKLab
+  const a = C * Math.cos(rad);
+  const b = C * Math.sin(rad);
+
+  // OKLab → LMS
+  const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
+  const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
+  const s_ = L - 0.0894841775 * a - 1.2914855480 * b;
+
+  // cube
+  const l = l_ ** 3;
+  const m = m_ ** 3;
+  const s = s_ ** 3;
+
+  // LMS → linear RGB
+  let r = +4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s;
+  let g = -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s;
+  let b_ = -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s;
+
+  // linear → sRGB
+  const toSRGB = (x) =>
+    x <= 0.0031308
+      ? 12.92 * x
+      : 1.055 * Math.pow(x, 1 / 2.4) - 0.055;
+
+  r = toSRGB(r);
+  g = toSRGB(g);
+  b_ = toSRGB(b_);
+
+  // clamp + convert to 0–255
+  return [
+    Math.round(Math.max(0, Math.min(1, r)) * 255),
+    Math.round(Math.max(0, Math.min(1, g)) * 255),
+    Math.round(Math.max(0, Math.min(1, b_)) * 255),
+  ];
+}
+
+function rgbToOklch(r, g, b) {
+  // normalize
+  r /= 255;
+  g /= 255;
+  b /= 255;
+
+  // sRGB → linear
+  const toLinear = (x) =>
+    x <= 0.04045
+      ? x / 12.92
+      : Math.pow((x + 0.055) / 1.055, 2.4);
+
+  r = toLinear(r);
+  g = toLinear(g);
+  b = toLinear(b);
+
+  // linear RGB → LMS
+  const l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
+  const m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
+  const s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b;
+
+  // cube root
+  const l_ = Math.cbrt(l);
+  const m_ = Math.cbrt(m);
+  const s_ = Math.cbrt(s);
+
+  // LMS → OKLab
+  const L = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_;
+  const a = 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_;
+  const b_ = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_;
+
+  // OKLab → OKLCH
+  const C = Math.sqrt(a * a + b_ * b_);
+  let h = Math.atan2(b_, a) * (180 / Math.PI);
+  if (h < 0) h += 360;
+
+  return { L, C, h };
+}

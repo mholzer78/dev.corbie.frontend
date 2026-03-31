@@ -5,8 +5,16 @@ $bgNOK: rgba(204, 51, 51, 0.2);
 
 :host {
   display: flex;
-  justify-content: end;
-  cursor: pointer;
+  justify-content: center;
+  .content {
+    width: 100%;
+    margin: -0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
 }
 
 #clipboardInput {
@@ -14,6 +22,7 @@ $bgNOK: rgba(204, 51, 51, 0.2);
 }
 .message {
   position: fixed;
+  width: auto;
   bottom: 0;
   right: 0;
   display: flex;

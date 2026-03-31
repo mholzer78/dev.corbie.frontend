@@ -1,10 +1,25 @@
 <header>
   <h1>Lorem Ipsum Generator</h1>
   <h2>Generate placeholder text for UI design and development</h2>
+  <hr />
 </header>
 <div class="card-wrapper">
   <div class="card">
     <div class="inner">
+      Amount
+      <div>
+        <input
+          id="length"
+          type="number"
+          name="length"
+          maxlength="2"
+          size="2"
+          placeholder="0"
+          min="1"
+          max="99"
+          [(ngModel)]="length"
+        />
+      </div>
       Settings
       <div class="crbInput buttonWrapper">
         <input
@@ -35,27 +50,15 @@
         />
         <label class="iconButton" for="paragraphs">Paragraphs</label>
       </div>
-      Amount
-      <div>
-        <input
-          id="length"
-          type="number"
-          name="length"
-          maxlength="2"
-          size="2"
-          placeholder="0"
-          min="1"
-          max="99"
-          [(ngModel)]="length"
-        />
-      </div>
     </div>
   </div>
   <div class="card">
     <div class="inner">
       <div class="flex">
         Generated Text
-        <div class="iconButton"><crb-clipboard title="Octal" [value]="'TBD'" />Copy Result</div>
+        <crb-clipboard title="Password" [value]="text()" class="iconButton">
+          <crb-icon image="copy" width="30" height="30" />Copy Result
+        </crb-clipboard>
       </div>
       <textarea id="text" name="text" rows="5" cols="75" [value]="text()" disabled></textarea>
     </div>

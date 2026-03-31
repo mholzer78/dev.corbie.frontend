@@ -1,4 +1,4 @@
-export class ColorConvertService {
+export class ColorConverterService {
   //  https://www.w3schools.com/colors/colors_converter.asp
   //  https://www.w3schools.com/lib/w3color.js
   names = [

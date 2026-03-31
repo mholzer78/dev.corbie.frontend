@@ -1,0 +1,23 @@
+<div class="range-container">
+  <div class="range-track"></div>
+  <div class="range-progress" [ngStyle]="{ background: progressGradient() }"></div>
+
+  <input
+    id="slider1"
+    name="slider1"
+    type="range"
+    min="0"
+    max="{{ sliderMax() }}"
+    [(ngModel)]="slider1"
+    (input)="changeValue()"
+  />
+  <input
+    id="slider2"
+    name="slider2"
+    type="range"
+    min="0"
+    max="{{ sliderMax() }}"
+    [(ngModel)]="slider2"
+    (input)="changeValue()"
+  />
+</div>

@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConvertTime } from './convert-time';
+import { InputRange } from './input-range';
 
-describe('ConvertTime', () => {
-  let component: ConvertTime;
-  let fixture: ComponentFixture<ConvertTime>;
+describe('InputRange', () => {
+  let component: InputRange;
+  let fixture: ComponentFixture<InputRange>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ConvertTime],
-    }).compileComponents();
+      imports: [InputRange]
+    })
+    .compileComponents();
 
-    fixture = TestBed.createComponent(ConvertTime);
+    fixture = TestBed.createComponent(InputRange);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

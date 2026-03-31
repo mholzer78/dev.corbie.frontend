@@ -1,6 +1,7 @@
 <header>
   <h1>Permission Generator</h1>
   <h2>Generate Linux chmod permissions visually</h2>
+  <hr />
 </header>
 <div class="card-wrapper">
   <div class="card">
@@ -44,12 +45,16 @@
         />
       </div>
       <div class="buttonWrapper">
-        <div class="iconButton">
-          <crb-clipboard title="Chmod" [value]="'chmod' + permOctal() + 'file.sh'" />Copy chmod
-        </div>
-        <div class="iconButton">
-          <crb-clipboard title="Octal" [value]="permOctal()" />Copy octal
-        </div>
+        <crb-clipboard
+          title="Chmod"
+          [value]="'chmod ' + permOctal() + ' file.sh'"
+          class="iconButton"
+        >
+          <crb-icon image="copy" width="30" height="30" />Copy chmod
+        </crb-clipboard>
+        <crb-clipboard title="Octal" [value]="permOctal()" class="iconButton">
+          <crb-icon image="copy" width="30" height="30" />Copy octal
+        </crb-clipboard>
       </div>
     </div>
   </div>

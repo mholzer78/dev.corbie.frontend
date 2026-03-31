@@ -8,7 +8,6 @@ $inputMargin: 1rem;
     display: block;
     padding-bottom: 0.75rem;
     font-size: 1.25rem;
-    //background-color: var(--main-bg-color);
   }
   input[type='text'],
   input[type='number'] {
@@ -35,7 +34,6 @@ $inputMargin: 1rem;
       margin: 0;
     }
     &:disabled {
-      border: 2px solid var(--input-bg-color);
       background-color: var(--input-bg-disabled-color);
     }
   }
@@ -82,32 +80,10 @@ $inputMargin: 1rem;
     }
   }
 }
-
 @mixin crbRange {
   input[type='range'] {
-    appearance: none;
-    height: 1.5rem;
-    width: calc(100% - 5rem);
-    background-color: var(--input-bg-disabled-color);
-    overflow: hidden;
-    border-radius: 15px;
-  }
-
-  input[type='range']::-webkit-slider-thumb {
-    appearance: none;
-    width: 1px;
-    height: 1.5rem;
-    background-color: var(--sec-fg-color);
-    border-radius: 50%;
-    box-shadow: -1000px 0 0 1000px var(--sec-fg-color);
-  }
-
-  input[type='range']::-moz-range-progress {
-    background: var(--sec-fg-color);
-  }
-
-  input[type='range']::-moz-range-track {
-    background: var(--input-bg-color);
+    width: 100%;
+    accent-color: var(--sec-fg-color);
   }
 }
 @mixin crbTextarea {
@@ -133,7 +109,6 @@ $inputMargin: 1rem;
       margin: 0;
     }
     &:disabled {
-      border: 2px solid var(--input-bg-color);
       background-color: var(--input-bg-disabled-color);
     }
   }

@@ -1,13 +1,14 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, computed, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SiteBlueprint } from '../SiteBlueprint';
 import { Clipboard } from '@libs/clipboard';
+import { Icons } from '@libs/icons';
 
 @Component({
   selector: 'section[changeCase]',
   standalone: true,
-  imports: [FormsModule, Clipboard],
+  imports: [Icons, FormsModule, Clipboard],
   templateUrl: './change-case.component.html',
   styleUrl: './change-case.component.scss',
 })
@@ -15,6 +16,9 @@ export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDest
   textOriginal = signal('');
   text = signal('');
   option = signal('lower');
+  countWords = computed(() => this.analyzeText(this.textOriginal()).words);
+  countCharacters = computed(() => this.analyzeText(this.textOriginal()).characters);
+  countSentences = computed(() => this.analyzeText(this.textOriginal()).sentences);
 
   ngOnInit(): void {
     let storage = this.getStorage('changeCase');
@@ -114,5 +118,20 @@ export class ChangeCaseComponent extends SiteBlueprint implements OnInit, OnDest
       default:
         return '';
     }
+  }
+  analyzeText(text: string) {
+    const words = text.trim().match(/\b\w+\b/g) || [];
+
+    return {
+      characters: text.length,
+      charactersNoSpaces: text.replace(/\s/g, '').length,
+      words: words.length,
+      sentences: (text.match(/[^.!?]+[.!?]+/g) || []).length,
+      //lines: text.split(/\r?\n/).length,
+      //paragraphs: text.split(/\n\s*\n/).filter((p) => p.trim()).length,
+      //numbers: (text.match(/\d+/g) || []).length,
+      //uniqueWords: new Set(words.map((w) => w.toLowerCase())).size,
+      //readingTime: Math.ceil(words.length / 200),
+    };
   }
 }

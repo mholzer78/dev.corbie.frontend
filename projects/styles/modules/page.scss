@@ -41,6 +41,13 @@ $defaultWidth: 40dvw;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    hr {
+      color: green;
+      background-color: blue;
+      border-color: var(--sec-fg-color);
+      box-shadow: 0px 0px 10px 5px var(--sec-bg-color);
+    }
     header,
     .card {
       width: $defaultWidth;
@@ -61,13 +68,13 @@ $defaultWidth: 40dvw;
     header {
       text-align: center;
       border-width: 0;
-      border-bottom-width: 2px;
     }
     .card {
       border-radius: 0.5rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      box-shadow: 0px 0px 10px 3px var(--sec-bg-color);
     }
     .card-wrapper {
       width: $defaultWidth;

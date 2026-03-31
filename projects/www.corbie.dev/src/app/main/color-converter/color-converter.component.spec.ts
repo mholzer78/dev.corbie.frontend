@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ColorConvertComponent } from './color-convert.component';
+import { colorconverterComponent } from './color-converter.component';
 
-describe('ColorConvertComponent', () => {
-  let component: ColorConvertComponent;
-  let fixture: ComponentFixture<ColorConvertComponent>;
+describe('colorconverterComponent', () => {
+  let component: colorconverterComponent;
+  let fixture: ComponentFixture<colorconverterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ColorConvertComponent],
+      imports: [colorconverterComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ColorConvertComponent);
+    fixture = TestBed.createComponent(colorconverterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
