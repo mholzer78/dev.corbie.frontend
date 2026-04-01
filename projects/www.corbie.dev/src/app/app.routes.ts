@@ -6,8 +6,8 @@ import { PermissionGeneratorComponent } from './main/permission-generator/permis
 import { ChangeCaseComponent } from './main/change-case/change-case.component';
 import { LoremIpsumComponent } from './main/lorem-ipsum/lorem-ipsum.component';
 import { LoremImageComponent } from './main/lorem-image/lorem-image.component';
-import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 import { TimeConverterComponent } from './main/time-converter/time-converter.component';
+import { Http404 } from '@libs/http404';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'corbie.dev' },
@@ -26,5 +26,5 @@ export const routes: Routes = [
   { path: 'lorem-ipsum', component: LoremIpsumComponent, title: 'Lorem Ipsum' },
   { path: 'lorem-image', component: LoremImageComponent, title: 'Lorem Image' },
   { path: 'time-converter', component: TimeConverterComponent, title: 'Time Converter' },
-  { path: '**', component: PageNotFoundComponent, title: 'HTTP404' },
+  { path: '**', component: Http404, title: 'HTTP404' },
 ];
