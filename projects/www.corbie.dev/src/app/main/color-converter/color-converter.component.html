@@ -235,7 +235,7 @@
         @if (names[codes.indexOf(inputName.value)]) {
           <div>
             <crb-clipboard
-              title="Websafe as RGB"
+              title="Color name"
               [value]="names[codes.indexOf(inputName.value)]"
               class="iconButton"
             >
@@ -326,7 +326,7 @@
           <span class="pseudoLabel">HSV (HSB)</span>
           <div>
             <crb-clipboard
-              title="Websafe as RGB"
+              title="Color as HSV (HSB)"
               [value]="'hsv(' + colorHSV()[0] + ', ' + colorHSV()[1] + '%, ' + colorHSV()[2] + '%)'"
               class="iconButton"
             >
@@ -406,7 +406,7 @@
           <span class="pseudoLabel">HSL</span>
           <div>
             <crb-clipboard
-              title="Websafe as RGB"
+              title="Color as HSL"
               [value]="'hsl(' + colorHSL()[0] + ', ' + colorHSL()[1] + '%, ' + colorHSL()[2] + '%)'"
               class="iconButton"
             >
@@ -486,7 +486,7 @@
       <div class="flex">
         <span class="pseudoLabel">CMYK</span>
         <crb-clipboard
-          title="Websafe as RGB"
+          title="Color as CMYK"
           [value]="
             'cmyk(' +
             colorCMYK()[0] +
